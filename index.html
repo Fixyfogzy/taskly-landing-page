@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly - Simple Task Management for Teams</title>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+
+
+        /* === SMOOTH SCROLL === */
+html {
+    scroll-behavior: smooth;
+}
+
+/* === SCROLL ANIMATIONS === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-animate {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Delay for staggered animations */
+.scroll-animate.delay-1 { animation-delay: 0.2s; }
+.scroll-animate.delay-2 { animation-delay: 0.4s; }
+.scroll-animate.delay-3 { animation-delay: 0.6s; }
+        .hero {
+    padding: 10rem 0 5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); /* Subtle gradient */
+    position: relative;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(67, 97, 238, 0.03)"/></svg>');
+    background-size: cover;
+    z-index: 0;
+}
+.hero__content, .hero__image {
+    position: relative;
+    z-index: 1;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Taskly</a>
+
+            <!-- Hamburger Menu Icon -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <!-- Navigation Menu -->
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#features" class="nav__link">Features</a></li>
+                <li><a href="#pricing" class="nav__link">Pricing</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+                <li><a href="#" class="btn btn-primary">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div  class="hero__content scroll-animate">
+            <h1 class="hero__title">Task Management, Made Simple.</h1>
+            <p class="hero__subtitle">Organize tasks, collaborate with your team, and hit deadlines effortlessly. All in one place with Taskly.</p>
+            <a href="#" class="btn btn-primary">Get Started Free</a>
+        </div>
+        <div class="hero__image scroll-animate delay-1">
+            <!-- Placeholder for your illustration. Replace with your own image. -->
+            <img src="images/undraw_group-project_kow1.svg" alt="Taskly App Interface" width="600" height="400">
+        </div>
+    </section>
+
+        <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features__intro scroll-animate">
+                <h2 class="features__title">Powerful Features. Simple Use.</h2>
+                <p class="features__subtitle">Everything you need to get your team organized and productive.</p>
+            </div>
+
+            <div class="features__grid">
+                <!-- Feature Card 1 -->
+                <article class="feature__card scroll-animate delay-1">
+                    <div class="feature__icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="feature__title">Task Tracking</h3>
+                    <p class="feature__text">Create, assign, and prioritize tasks. Visualize your team's progress with intuitive boards and timelines.</p>
+                </article>
+
+                <!-- Feature Card 2 -->
+                <article class="feature__card scroll-animate delay-2">
+                    <div class="feature__icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature__title">Team Collaboration</h3>
+                    <p class="feature__text">Comment, share files, and tag teammates. Keep everyone in the loop and working together seamlessly.</p>
+                </article>
+
+                <!-- Feature Card 3 -->
+                <article class="feature__card scroll-animate delay-3">
+                    <div class="feature__icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="feature__title">Smart Reminders</h3>
+                    <p class="feature__text">Never miss a deadline. Get automated notifications for upcoming due dates and assigned tasks.</p>
+                </article>
+
+                <!-- Feature Card 4 -->
+                <article class="feature__card scroll-animate delay-1">
+                    <div class="feature__icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="feature__title">Productivity Analytics</h3>
+                    <p class="feature__text">Gain insights into your team's performance. Identify bottlenecks and celebrate milestones with easy-to-read reports.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="pricing__intro scroll-animate">
+                <h2 class="pricing__title">Simple, Transparent Pricing</h2>
+                <p class="pricing__subtitle">Choose the plan that works best for you and your team.</p>
+            </div>
+
+            <div class="pricing__grid">
+                <!-- Free Plan Card -->
+                <div class="pricing__card scroll-animate delay-1">
+                    <div class="pricing__header">
+                        <h3 class="pricing__plan">Free</h3>
+                        <div class="pricing__price">
+                            <span class="pricing__amount">$0</span>
+                            <span class="pricing__period">/forever</span>
+                        </div>
+                    </div>
+                    <ul class="pricing__features">
+                        <li><i class="fas fa-check-circle"></i> Up to 5 team members</li>
+                        <li><i class="fas fa-check-circle"></i> 5 GB storage</li>
+                        <li><i class="fas fa-check-circle"></i> Basic task management</li>
+                        <li><i class="fas fa-check-circle"></i> Standard support</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline pricing__cta">Get Started</a>
+                </div>
+
+                <!-- Pro Plan Card (Highlighted) -->
+                <div class="pricing__card pricing__card--highlighted scroll-animate delay-2">
+                    <div class="pricing__badge">Most Popular</div>
+                    <div class="pricing__header">
+                        <h3 class="pricing__plan">Pro</h3>
+                        <div class="pricing__price">
+                            <span class="pricing__amount">$9</span>
+                            <span class="pricing__period">/user/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing__features">
+                        <li><i class="fas fa-check-circle"></i> Unlimited team members</li>
+                        <li><i class="fas fa-check-circle"></i> 100 GB storage</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced analytics & reports</li>
+                        <li><i class="fas fa-check-circle"></i> Priority support</li>
+                        <li><i class="fas fa-check-circle"></i> Custom fields & workflows</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary pricing__cta">Start Free Trial</a>
+                </div>
+            </div>
+            <p class="pricing__footer scroll-animate delay-3">All plans include our core features. Need more? <a href="#contact">Contact us</a>.</p>
+        </div>
+    </section>
+
+
+        <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials__intro scroll-animate">
+                <h2 class="testimonials__title">Loved by Teams Worldwide</h2>
+                <p class="testimonials__subtitle">See what our users are saying about Taskly.</p>
+            </div>
+
+            <div class="testimonials__grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial__card scroll-animate delay-1">
+                    <div class="testimonial__content">
+                        <div class="testimonial__stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial__quote">"Taskly has completely transformed how our remote team collaborates. We're 40% more productive and finally hitting all our deadlines."</p>
+                    </div>
+                    <div class="testimonial__author">
+                        <img src="https://placehold.co/60x60/3b82f6/ffffff/png?text=SA" alt="Sarah Adams" class="testimonial__avatar" width="60" height="60">
+                        <div class="testimonial__info">
+                            <h4 class="testimonial__name">Sarah Adams</h4>
+                            <p class="testimonial__role">Project Manager, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial__card scroll-animate delay-2">
+                    <div class="testimonial__content">
+                        <div class="testimonial__stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial__quote">"The simplicity is its biggest strength. We were up and running in a day, and the analytics help me report to stakeholders effortlessly."</p>
+                    </div>
+                    <div class="testimonial__author">
+                        <img src="https://placehold.co/60x60/3b82f6/ffffff/png?text=MK" alt="Mark Kim" class="testimonial__avatar" width="60" height="60">
+                        <div class="testimonial__info">
+                            <h4 class="testimonial__name">Mark Kim</h4>
+                            <p class="testimonial__role">CTO, Nexus Labs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial__card scroll-animate delay-3">
+                    <div class="testimonial__content">
+                        <div class="testimonial__stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial__quote">"As a freelancer, keeping clients in the loop is key. Taskly's sharing features are perfect for this. My clients love the transparency!"</p>
+                    </div>
+                    <div class="testimonial__author">
+                        <img src="https://placehold.co/60x60/3b82f6/ffffff/png?text=JP" alt="Jessica Perez" class="testimonial__avatar" width="60" height="60">
+                        <div class="testimonial__info">
+                            <h4 class="testimonial__name">Jessica Perez</h4>
+                            <p class="testimonial__role">Freelance Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Brand Column -->
+                <div class="footer__col">
+                    <a href="#" class="footer__logo">Taskly</a>
+                    <p class="footer__description">The simple productivity tool for teams that want to achieve more, together.</p>
+                    <div class="footer__social">
+                        <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product Links -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Product</h4>
+                    <ul class="footer__links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Updates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Company</h4>
+                    <ul class="footer__links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Links -->
+                <div class="footer__col">
+                    <h4 class="footer__title">Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright & Legal -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2023 Taskly. All rights reserved.</p>
+                <div class="footer__legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to toggle the mobile menu
+        const toggleButton = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        toggleButton.addEventListener('click', () => {
+            // Toggle the 'active' class on the menu
+            navMenu.classList.toggle('active');
+
+            // Optional: Change the icon from bars to X when active
+            const icon = toggleButton.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+
+              // JavaScript for scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+        const animatedElements = document.querySelectorAll('.scroll-animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        animatedElements.forEach(element => {
+            element.style.animationPlayState = 'paused';
+            observer.observe(element);
+        });
+    });
+        });
+    </script>
+</body>
+</html>
